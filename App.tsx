@@ -1,10 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ProfileScreen from './Profile';
-import HobbiesScreen from './Hobbies';
+import HomeScreen from './src/screens/HomeScreen';
+import ProfileScreen from './src/screens/Profile';
+import HobbiesScreen from './src/screens/Hobbies';
 
+/* 
+// Esta era la versión vieja de HomeScreen con botones
 function HomeScreen({ navigation }: any) {
     return (
         <View style={styles.container}>
@@ -19,20 +21,6 @@ function HomeScreen({ navigation }: any) {
                 <Button title="Ver Hobbies" onPress={() => navigation.navigate('Hobbies')} />
             </View>
         </View>
-    );
-}
-
-const Stack = createNativeStackNavigator();
-
-export default function App() {
-    return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName="Home">
-                <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Inicio' }} />
-                <Stack.Screen name="Perfil" component={ProfileScreen} />
-                <Stack.Screen name="Hobbies" component={HobbiesScreen} />
-            </Stack.Navigator>
-        </NavigationContainer>
     );
 }
 
@@ -64,3 +52,22 @@ const styles = StyleSheet.create({
         marginBottom: 12,
     },
 });
+*/
+
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen 
+          name="Home" 
+          component={HomeScreen} 
+          options={{ title: 'Productos' }} 
+        />
+        <Stack.Screen name="Perfil" component={ProfileScreen} />
+        <Stack.Screen name="Hobbies" component={HobbiesScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
